@@ -5,6 +5,7 @@ extern int b0,b1,b2;
 extern char ch[];
 extern int nu[16];
 
+////////////////F1///////////////////
 char F1(int num){
     for (i=0;i<16;i++){
         if (num==nu[i]){
@@ -13,6 +14,8 @@ char F1(int num){
     }    
 }
 
+
+////////////////start///////////////////
 int start(){
         PORTD.0=0;
         PORTD.1=1;
@@ -45,7 +48,7 @@ int start(){
 
 }
 
-
+////////////////Fj///////////////////
 void Fj(int j){
       if (j>=0){
             i=0;
@@ -55,6 +58,8 @@ void Fj(int j){
       delay_ms(5);
 }
 
+
+////////////////Fch///////////////////
 void Fch(int count){
         flag=0;
         if (count==14){
@@ -170,4 +175,25 @@ void Fch(int count){
                 return;
             }
         }
+}
+
+
+/////////////interrupt///////////////////
+interrupt [EXT_INT2] void my_inter2(void)
+{
+     b2=1; 
+     delay_ms(50);
+}
+interrupt [EXT_INT1] void my_inter1(void)
+{
+    b1=1; 
+    delay_ms(50);
+   
+}
+
+
+interrupt [EXT_INT0] void my_inter0(void)
+{  
+    b0=1;   
+    delay_ms(50);
 }

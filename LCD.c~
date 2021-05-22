@@ -1,0 +1,36 @@
+#include "LCD.h"
+#include "Keypad.h"
+
+extern int n1,n2,n3,n4;
+extern int x,y;
+extern char ch10 ,ch01 , ch[];
+
+void sh_FZ(int num){
+            n1=num%16;
+            ch01=F1(n1);
+            n2=num/16;
+            ch10=F1(n2);
+            lcd_gotoxy(x,y);
+            lcd_putchar(ch10);
+            x++;
+            lcd_putchar(ch01);
+}
+
+void show(int j){
+                    
+    lcd_gotoxy(x,y);
+    lcd_putchar(ch[j]);
+    delay_ms(50);
+    j=-1;
+    if (x==15 && y==1){
+        lcd_clear();
+        x=-1;
+        y=0;
+    }
+        if (x==15){
+        x=-1;
+        y+=1;
+        }
+        x++;        
+}
+        

@@ -1,0 +1,6 @@
+#include <io.h>
+#include <delay.h>
+#include <alc.h>
+
+void sh_FZ(int num);
+void show(int j);  

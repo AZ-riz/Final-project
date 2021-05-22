@@ -1,17 +1,13 @@
-#include <io.h>
-#include <alcd.h>
+#include "LCD.h"
 #include "MPX4.h"
 #include "Keypad.h"
 
 char ch[]="978A645B312CEF0D",ch01,ch10;
 int nu[16]={0x09,0x07,0x08,0x0A,0x06,0x04,0x05,0x0B,0x03,0x01,0x02,0x0C,0x0E,0x0F,0x00,0x0D};
 
-//char F1(int);//keypad
-void sh_FZ(int num);//lcd
-//void Fch(int count);//keypad
-void show(int j);  //lcd
-//int start();   //keypad
-//void Fj(int j);//keypad
+
+
+
 int count=-1,n1,n2,n3,n4;
 int tempZF_Z=0,tempZF_F=0,tempFZ_Z=0,tempFZ_F=0;
 int ZF=0x0F,FZ=0x1E,MAX=0x00,MIN=0xFF,flagFZ=0,flagZF=0;
@@ -20,6 +16,8 @@ int i=-1,j=-1,flag,x=0,y=0,k=0;
 int r1=0,r0=0;
 int ra1=0,ra0=0,rf=0,t=0;
 int len=0,boo1=0;
+
+/////////////main///////////
 void main(void)
 {
 lcd_init(16);
@@ -180,7 +178,8 @@ PORTD.7=1;
             counter(MIN,MAX);
             
             PORTB = 0XF4;
-            
+            MIN=0XFF;
+            MAX=0X00;
             lcd_clear();
             x=0;
             y=0;
@@ -193,58 +192,3 @@ PORTD.7=1;
     }
 }
 
-
-
-
-void sh_FZ(int num){
-            n1=num%16;
-            ch01=F1(n1);
-            n2=num/16;
-            ch10=F1(n2);
-            lcd_gotoxy(x,y);
-            lcd_putchar(ch10);
-            x++;
-            lcd_putchar(ch01);
-}
-
-
-
-
-
-void show(int j){
-                    
-    lcd_gotoxy(x,y);
-    lcd_putchar(ch[j]);
-    delay_ms(50);
-    j=-1;
-    if (x==15 && y==1){
-        lcd_clear();
-        x=-1;
-        y=0;
-    }
-        if (x==15){
-        x=-1;
-        y+=1;
-        }
-        x++;        
-}
-        
-
-interrupt [EXT_INT2] void my_inter2(void)
-{
-     b2=1; 
-     delay_ms(50);
-}
-interrupt [EXT_INT1] void my_inter1(void)
-{
-    b1=1; 
-    delay_ms(50);
-   
-}
-
-
-interrupt [EXT_INT0] void my_inter0(void)
-{  
-    b0=1;   
-    delay_ms(50);
-}

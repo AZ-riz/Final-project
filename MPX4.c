@@ -10,7 +10,7 @@
 int digit[4]= {112,176,208,224};
 int i1,j1;
 
-//////////////////////////////////////
+/////////////////counter/////////////////////
 void counter(int first, int last)
 {   
 
@@ -32,7 +32,7 @@ void counter(int first, int last)
 
 }
 
-//////////////////////////////////////////
+/////////////////first_show/////////////////////////
 void first_show(int first , int last)
 {
   int show = last;

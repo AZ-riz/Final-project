@@ -2,7 +2,7 @@
 
 extern int i,j,flag;
 extern int b0,b1,b2;
-extern char ch[16];
+extern char ch[];
 extern int nu[16];
 
 char F1(int num){
@@ -170,4 +170,23 @@ void Fch(int count){
                 return;
             }
         }
+}
+
+interrupt [EXT_INT2] void my_inter2(void)
+{
+     b2=1; 
+     delay_ms(50);
+}
+interrupt [EXT_INT1] void my_inter1(void)
+{
+    b1=1; 
+    delay_ms(50);
+   
+}
+
+
+interrupt [EXT_INT0] void my_inter0(void)
+{  
+    b0=1;   
+    delay_ms(50);
 }

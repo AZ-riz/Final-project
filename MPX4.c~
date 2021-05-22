@@ -8,23 +8,23 @@
                  };  
 
 int digit[4]= {112,176,208,224};
-extern int i,j;
+int i1,j1;
 
 //////////////////////////////////////
 void counter(int first, int last)
 {   
 
-    for(i = first ; i<=last ; i++)
-    {  j=0;
+    for(i1 = first ; i1<=last ; i1++)
+    {  j1=0;
     
-       while(j<25){  
-          j++; 
+       while(j1<25){  
+          j1++; 
           PORTB = digit[0];
-          PORTC=numbers[i%16];
+          PORTC=numbers[i1%16];
           delay_ms(2); 
          
           PORTB = digit[1];
-          PORTC=numbers[i/16]; 
+          PORTC=numbers[i1/16]; 
           delay_ms(2);
          }
         
@@ -38,13 +38,13 @@ void first_show(int first , int last)
   int show = last;
   int a = 0;
     
-    j=0;
+    j1=0;
     
-    while(j<40){  
-       j++; 
-         for(i=0 ; i<4 ; i++){
+    while(j1<40){  
+       j1++; 
+         for(i1=0 ; i1<4 ; i1++){
          
-            PORTB = digit[i];
+            PORTB = digit[i1];
             PORTC=numbers[show%16]; 
             show/=16;
             delay_ms(2);
