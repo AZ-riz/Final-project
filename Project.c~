@@ -1,24 +1,16 @@
-/*
- * Project.c
- *
- * Created: 5/16/2021 3:58:57 PM
- * Author: AMR
- */
-
 #include <io.h>
 #include <alcd.h>
-#include <delay.h>
 #include "MPX4.h"
 
 char ch[]="978A645B312CEF0D",ch01,ch10;
 int nu[16]={0x09,0x07,0x08,0x0A,0x06,0x04,0x05,0x0B,0x03,0x01,0x02,0x0C,0x0E,0x0F,0x00,0x0D};
-//int number[16]={0b01111110,0b00001100,0b10110110,0b10011110,0b11001100,0b11011010,0b11111010,0b00001110,0b11111110,0b11011110,0b10111110,0b11111000,0b01110010,0b10111100,0b11110010,0b11100010};
-char F1(int num);
-void sh_FZ(int num);
-void Fch(int count);
-void show(int j);
-int start();
-void Fj(int j);
+
+//char F1(int);//keypad
+void sh_FZ(int num);//lcd
+//void Fch(int count);//keypad
+void show(int j);  //lcd
+//int start();   //keypad
+//void Fj(int j);//keypad
 int count=-1,n1,n2,n3,n4;
 int tempZF_Z=0,tempZF_F=0,tempFZ_Z=0,tempFZ_F=0;
 int ZF=0x0F,FZ=0x1E,MAX=0x00,MIN=0xFF,flagFZ=0,flagZF=0;
@@ -213,173 +205,11 @@ void sh_FZ(int num){
             x++;
             lcd_putchar(ch01);
 }
-char F1(int num){
-    for (i=0;i<16;i++){
-        if (num==nu[i]){
-            return ch[i];
-        }
-    }    
-}
 
-int start(){
-        PORTD.0=0;
-        PORTD.1=1;
-        PORTD.4=1;
-        PORTD.5=1;
-        if (b0==1 || b1==1 || b2==1)
-        return 14;
-        //////--------------
-        PORTD.0=1;
-        PORTD.1=0;
-        PORTD.4=1;
-        PORTD.5=1;
-        if (b0==1 || b1==1 || b2==1)
-        return 13;
-        //////--------------
-        PORTD.0=1;
-        PORTD.1=1;
-        PORTD.4=0;
-        PORTD.5=1;
-        if (b0==1 || b1==1 || b2==1)
-        return 11;
-        //////--------------
-        PORTD.0=1;
-        PORTD.1=1;
-        PORTD.4=1;
-        PORTD.5=0;
-        if (b0==1 || b1==1 || b2==1)
-        return 7;
-        
 
-}
-void Fch(int count){
-        flag=0;
-        if (count==14){
-            if (b0==1 && b1==1){
-                j=flag;
-                b0=0;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b0==1){
-                j=flag+1;
-                b0=0;
-                Fj(j);
-                return;
-            }
-            else if (b1==1){
-                j=flag+2;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b2==1){
-                j=flag+3;
-                b2=0;
-                Fj(j);
-                return;
-            }
-        }
-        
-        else if (count==13){
-            flag=4;
-            if (b0==1 && b1==1){
-                j=flag;
-                b0=0;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b0==1){
-                j=flag+1;
-                b0=0;
-                Fj(j);
-                return;
-            }
-            else if (b1==1){
-                j=flag+2;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b2==1){
-                j=flag+3;
-                b2=0;
-                Fj(j);
-                return;
-            }
-        }
-        else if (count==11){
-            flag=8;
-            if (b0==1 && b1==1){
-                j=flag;
-                b0=0;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b0==1){
-                j=flag+1;
-                b0=0;
-                Fj(j);
-                return;
-            }
-            else if (b1==1){
-                j=flag+2;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b2==1){
-                j=flag+3;
-                b2=0;
-                Fj(j);
-                return;
-            }
-        }
-        
-        else if (count==7){
-            flag=12;
-            if (b0==1 && b1==1){
-                j=flag;
-                b0=0;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b0==1){
-                j=flag+1;
-                b0=0;
-                Fj(j);
-                return;
-            }
-            else if (b1==1){
-                j=flag+2;
-                b1=0;
-                Fj(j);
-                return;
-            }
-            else if (b2==1){
-                j=flag+3;
-                b2=0;
-                Fj(j);
-                return;
-            }
-        }
-        
-        
-        
-        
-}
-void Fj(int j){
-      if (j>=0){
-            i=0;
-            i=j;
-            j=-1;
-      }
-      delay_ms(5);
-}
+
+
+
 void show(int j){
                     
     lcd_gotoxy(x,y);
