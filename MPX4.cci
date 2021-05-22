@@ -1,0 +1,8 @@
+VERSION:3 SOURCE_TIMESTAMP:52B6AB33
+NODE:I LEVEL:0 LINE:1 "D:\MATIN\collage\AZ-Riz\Project (1)\Project\MPX4.h"
+NODE:V LEVEL:0 LINE:3 "numbers -> RAM:????"
+NODE:V LEVEL:0 LINE:10 "digit -> RAM:????"
+NODE:V LEVEL:0 LINE:11 "i1 -> RAM:????"
+NODE:V LEVEL:0 LINE:11 "j1 -> RAM:????"
+NODE:F LEVEL:0 LINE:14 "counter(int first,int last)"
+NODE:F LEVEL:0 LINE:36 "first_show(int first,int last)"

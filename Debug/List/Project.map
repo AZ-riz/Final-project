@@ -1,0 +1,74 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+ch                                                                                0x026A      17
+nu                                                                                0x027B      32
+tempZF_Z                                                                          0x029B       2
+tempZF_F                                                                          0x029D       2
+tempFZ_Z                                                                          0x029F       2
+tempFZ_F                                                                          0x02A1       2
+ZF                                                                                0x02A3       2
+FZ                                                                                0x02A5       2
+MAX                                                                               0x02A7       2
+MIN                                                                               0x02A9       2
+flagFZ                                                                            0x02AB       2
+flagZF                                                                            0x02AD       2
+b0                                                                                0x02AF       2
+b1                                                                                0x02B1       2
+b2                                                                                0x02B3       2
+i                                                                                 0x02B5       2
+j                                                                                 0x02B7       2
+flag                                                                              0x02B9       2
+x                                                                                 0x02BB       2
+y                                                                                 0x02BD       2
+r1                                                                                0x02BF       2
+r0                                                                                0x02C1       2
+ra1                                                                               0x02C3       2
+ra0                                                                               0x02C5       2
+rf                                                                                0x02C7       2
+t                                                                                 0x02C9       2
+boo1                                                                              0x02CB       2
+numbers                                                                           0x02CD      32
+digit                                                                             0x02ED       8
+i1                                                                                0x02F5       2
+j1                                                                                0x02F7       2
+_base_y                                                                           0x02F9       4
+_lcd_x                                                                            0x02FD       1
+_lcd_y                                                                            0x02FE       1
+_lcd_maxx                                                                         0x02FF       1
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+ch01                                                                              R5           1
+ch10                                                                              R4           1
+count                                                                             R6,R7        2
+n1                                                                                R8,R9        2
+n2                                                                                R10,R11      2
+n3                                                                                R12,R13      2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x000B5    513
+sh_FZ                                                                             0x002B6     28
+F1                                                                                0x002D2     44
+start                                                                             0x002FE     65
+Fch                                                                               0x0033F    180
+Fj                                                                                0x003F3     26
+show                                                                              0x0040D     46
+my_inter2                                                                         0x0043B      7
+my_inter0                                                                         0x00449     24
+counter                                                                           0x00461     59
+first_show                                                                        0x0049C     87
+_lcd_write_nibble_G100                                                            0x004F3     20
+_lcd_write_data                                                                   0x00507     12
+lcd_gotoxy                                                                        0x00513     17
+lcd_clear                                                                         0x00524     12
+lcd_putchar                                                                       0x00530     32
+lcd_puts                                                                          0x00550     17
+lcd_init                                                                          0x00561     44
